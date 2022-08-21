@@ -9,9 +9,9 @@ function validarInicio(){
     const password=document.getElementById("password").value;
     if (!email || !password){
         emptyLogin();
-        myStorage.setItem("logged","true");
     }else{
-    window.location.href="index.html"};
+        myStorage.setItem("logged","true");
+        window.location.href="index.html"};
 }
 
 function emptyLogin(){
