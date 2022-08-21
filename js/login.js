@@ -27,3 +27,11 @@ function emptyLogin(){
         }
     }
 }
+
+let loginPage="true";
+let myStorage=window.localStorage;
+document.addEventListener("DOMContentLoaded",function(){
+  if (!myStorage.getItem("logged") && loginPage!="true"){
+    window.location.href="login.html";
+  }
+})
