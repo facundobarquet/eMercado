@@ -188,3 +188,41 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+
+/* Estilos login */
+
+.text-center{
+  background-color: rgb(248, 249, 250);
+}
+
+.form-signin{
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.form-floating{
+  margin: 30px 50px 30px 50px;
+}
+
+.lg-footer{
+  text-align: left;
+}
+
+.mb-4{
+width: 70%;
+}
+
+.empty {
+  border-color: rgb(226, 49, 49);
+}
+
+.alert-empty {
+  padding: 5px;
+  color: rgb(226, 49, 49);
+  font-size: 90%;
+}
