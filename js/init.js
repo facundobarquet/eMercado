@@ -44,7 +44,7 @@ let myStorage=window.localStorage;
 // Localstorage con DOM, para el inicio de sesion
 let actualPage=window.location.pathname.split("/").slice(-1);
 document.addEventListener("DOMContentLoaded",function(){
-  if (!myStorage.getItem("logged") && actualPage=="login.html"){
+  if (!myStorage.getItem("logged") && actualPage!="login.html"){
     window.location.href="login.html";
   }
 })
