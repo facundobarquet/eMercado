@@ -28,9 +28,4 @@ function emptyLogin(){
     }
 }
 
-loginPage="true";
-document.addEventListener("DOMContentLoaded",function(){
-  if (!myStorage.getItem("logged") && loginPage!="true"){
-    window.location.href="login.html";
-  }
-})
+let loginPage="true";
