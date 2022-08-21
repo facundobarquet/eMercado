@@ -43,7 +43,11 @@ let getJSONData = function(url){
 let myStorage=window.localStorage;
 // Localstorage con DOM, para el inicio de sesion
 document.addEventListener("DOMContentLoaded",function(){
+<<<<<<< HEAD
   if (!myStorage.getItem("logged") && (window.location.pathname!="/login.html"|| window.location.href!="https://facundobarquet.github.io/eMercado/login.html")){
+=======
+  if (!myStorage.getItem("logged") && (window.location.pathname!="/login.html"|| window.location.href!="https://facundobarquet.github.io/eMercado/index.html")){
+>>>>>>> 3363a86dadfb9ec68fc288aaedcbaa354b2c50f2
     window.location.href="login.html";
   }
 })
