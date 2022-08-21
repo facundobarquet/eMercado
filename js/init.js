@@ -39,3 +39,11 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+let myStorage=window.localStorage;
+// Localstorage con DOM, para el inicio de sesion
+document.addEventListener("DOMContentLoaded",function(){
+  if (!myStorage.getItem("logged") && window.location.pathname!="/login.html"){
+    window.location.href="login.html";
+  }
+})

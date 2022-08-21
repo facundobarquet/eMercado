@@ -17,14 +17,26 @@
 </head>
 
 <body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
-  </main>
-  <footer class="text-muted">
+  <body class="text-center">
+    <main class="form-signin">
+      <form>
+        <img class="mb-4" src="/img/login.png" alt="">
+        <h1 class="h3 mb-3 fw-normal">Inicio de sesión</h1>
+    
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+          <label for="floatingInput">Email</label>
+          <p class="alert-empty"></p>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="password" placeholder="Password">
+          <label for="floatingPassword">Contraseña</label>
+          <p class="alert-empty"></p>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" id="lgBtn">Ingresar</button>
+      </form>
+    </main>
+  <footer class="text-muted lg-footer">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
@@ -35,6 +47,7 @@
     </div>
   </footer>
   <script src="js/login.js"></script>
+  <script src="js/init.js"></script>
 </body>
 
 </html>
