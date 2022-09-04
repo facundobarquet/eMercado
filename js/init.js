@@ -53,5 +53,6 @@ document.addEventListener("DOMContentLoaded",function(){
 document.addEventListener("DOMContentLoaded", function(){
   let email=myStorage.getItem("email");
   let navSpace=document.getElementsByClassName("nav-item")[3]
-  navSpace.innerHTML='<a class="nav-link" href="">'+email+'</a>'
+  if (navSpace){
+  navSpace.innerHTML='<a class="nav-link" href="">'+email+'</a>'}
 })
