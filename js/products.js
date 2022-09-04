@@ -39,7 +39,7 @@ function sortProducts(criteria, array){
 function showProductsList(){
 
     document.getElementById("prod-lead").innerHTML="Verás aquí todos los productos de la categoría "+ prodName;
-    console.log(currentProductsArray);
+    //console.log(currentProductsArray);
     let htmlContentToAppend = "";
     if (currentProductsArray.length != 0){
         for(let i = 0; i < currentProductsArray.length; i++){
@@ -90,12 +90,12 @@ function sortAndShowProducts(sortCriteria, productsArray){
 }
 
 function searchFilter(search){
-    console.log(search);
+    //console.log(search);
     let newArray=originalArray.filter(function(element){
-        console.log(element.name.toLowerCase())
+        //console.log(element.name.toLowerCase())
         return (element.name.toLowerCase().includes(search.toLowerCase()) || element.description.toLowerCase().includes(search.toLowerCase()))
     })
-    console.log(newArray);
+    //console.log(newArray);
     currentProductsArray=newArray;
 }
 
