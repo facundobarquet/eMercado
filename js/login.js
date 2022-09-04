@@ -11,6 +11,7 @@ function validarInicio(){
         emptyLogin();
     }else{
         myStorage.setItem("logged","true");
+        myStorage.setItem("email",email);
         window.location.href="index.html"};
 }
 
