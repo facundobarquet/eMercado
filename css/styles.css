@@ -242,3 +242,12 @@ width: 70%;
 .btn-check:checked + .btn-filter {
   background-color: rgba(211,212,213,.5);
 }
+
+/*Estrellas*/
+.star{
+  color: rgba(136, 137, 138, 0.623);
+}
+
+.checked{
+  color: #ffc107;
+}
