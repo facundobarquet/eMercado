@@ -49,10 +49,26 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 })
 
+function logOut(){
+  myStorage.clear();
+}
+
 //Añade mail a la barra de navegacion
 document.addEventListener("DOMContentLoaded", function(){
   let email=myStorage.getItem("email");
   let navSpace=document.getElementsByClassName("nav-item")[3]
   if (navSpace){
-  navSpace.innerHTML='<a class="nav-link" href="">'+email+'</a>'}
+  navSpace.innerHTML=`
+  <div class="dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    ${email}
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+    <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+    <li onclick="logOut()"><a class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+  </ul>
+</div>
+  `}
 })
