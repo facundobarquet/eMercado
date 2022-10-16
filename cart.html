@@ -36,10 +36,95 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div class="mx-auto p-4 container">
+        <div class=" my-2 text-center">
+          <h2>Carrito de compras</h2>
+        </div>
+
+
+        <div id="empty-cart-alert" hidden>
+          <div class="m-5 p-5 bg-light d-flex justify-content-between">
+            <div>
+              <h4 class="alert-heading">No hay productos en el carrito...</h4>
+            </div>
+            <div>
+              <a href="/categories.html"><button class=" btn btn-dark">Buscar productos</button></a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class=" m-5 p-2 lead" id="cart-div">
+          <h4>Artículos a comprar</h4>
+          <div class=" m-3">
+            <table class="table small">
+              <thead class=" text-center">
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Costo</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody class=" align-middle text-center" id="cart-table">
+                
+              </tbody>
+            </table>
+          </div>
+
+          <hr class=" my-5">
+
+          <div class="">
+            <form action="">
+              <h4 >Tipo de envío</h4>
+              <div class=" m-2 mb-5">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="" name="shipping-radio" id="premium">
+                  <label class="form-check-label" for="premium">
+                    Premium: 2 a 5 días (15%)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="" name="shipping-radio" id="express">
+                  <label class="form-check-label" for="express">
+                    Express: 5 a 8 días (7%)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" value="" name="shipping-radio" id="standard">
+                  <label class="form-check-label" for="standard">
+                    Standard: 12 a 15 días (5%)
+                  </label>
+                </div>
+              </div>
+              <h4>Dirección de envío</h4>
+              <div class="container">
+                <div class="row my-2">
+                  <div class="col">
+                    <label for="street" class=" form-label">Calle</label>
+                    <input type="text" class="form-control" id="street">
+                  </div>
+                  <div class="col">
+                    <label for="number" class=" form-label">Número</label>
+                    <input type="text" class="form-control w-75" id="number">
+                  </div>
+                </div>
+                <div class="row my-2">
+                  <div class="col">
+                    <label for="corner" class=" form-label">Esquina</label>
+                    <input type="text" class="form-control" id="corner">
+                  </div>
+                  <div class="col">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <hr class=" my-5">
+
+        </div>
     </div>
   </main>
   <footer class="text-muted">
