@@ -17,7 +17,7 @@ function purchaseButtons(){
     <button class="btn btn-outline-success disabled w-100 fw-bold">Producto en el carrito<i class="fas fa-check fa-pull-right p-1"></i></i></button>
     </div>
     <div class="col-2">
-      <a class="btn btn-success" href="/cart.html">Ver carrito</a>
+      <a class="btn btn-success" href="cart.html">Ver carrito</a>
     </div>`
   }
   return buttons
