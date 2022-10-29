@@ -183,7 +183,7 @@ function validatePayMethod(){
 function tiempoReal(){
     let cartListInputs=document.getElementsByClassName("toValidateCartList");
     for (const element of cartListInputs) {
-        element.setAttribute("oninput","validateCartList()")
+        element.setAttribute("onchange","validateCartList()")
     }
     let adressInputs=document.getElementsByClassName("toValidateAdress");
     for (const element of adressInputs) {
