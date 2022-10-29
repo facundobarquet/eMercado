@@ -1,3 +1,5 @@
+let fetchedCartArticles=[];
+
 const lgBtn= document.getElementById("lgBtn");
 lgBtn.addEventListener("click",function(event){
     event.preventDefault();
@@ -12,19 +14,27 @@ function validarInicio(){
     }else{
         myStorage.setItem("logged","true");
         myStorage.setItem("email",email);
+        myStorage.setItem("cart",JSON.stringify(fetchedCartArticles))
         window.location.href="index.html"};
 }
 
 function emptyLogin(){
-    // alert("Rellene los campos");
     const loginInput=document.getElementsByClassName("form-floating");
     for (let element of loginInput){
         if(element.getElementsByTagName("input")[0].value){
-            element.getElementsByTagName("input")[0].classList.remove("empty");
-            element.getElementsByTagName("p")[0].innerHTML="";
+            element.getElementsByTagName("input")[0].classList.remove("is-invalid");
+            element.getElementsByTagName("input")[0].classList.add("is-valid");
         }else{
-            element.getElementsByTagName("input")[0].classList.add("empty");
-            element.getElementsByTagName("p")[0].innerHTML="Ingresa tu "+ element.getElementsByTagName("label")[0].innerHTML;
+            element.getElementsByTagName("input")[0].classList.add("is-invalid");
+            element.getElementsByTagName("input")[0].classList.remove("is-valid");
         }
     }
 }
+
+document.addEventListener("DOMContentLoaded",async function(e){
+    let URL=CART_INFO_URL+"25801"+EXT_TYPE;
+    const resultObj= await getJSONData(URL);
+        if (resultObj.status === "ok")
+        {
+            fetchedCartArticles=resultObj.data.articles;
+        }})
