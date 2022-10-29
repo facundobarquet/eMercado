@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded",async function(e){
         {
             //console.log(resultObj);
             thisProductInfo=resultObj.data;
-            console.log(thisProductInfo);
             showProductInfo(thisProductInfo);
         }
 
