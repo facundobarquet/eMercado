@@ -7,13 +7,21 @@ lgBtn.addEventListener("click",function(event){
 })
 
 function validarInicio(){
-    const email=document.getElementById("email").value;
-    const password=document.getElementById("password").value;
-    if (!email || !password){
+    const profileData={ 
+        email:document.getElementById("email").value,
+        password:document.getElementById("password").value,
+        name:"",
+        name2:"",
+        surname:"",
+        surname2:"",
+        contactNumber:"",
+        profilePic:"img/img_perfil.png"
+    }
+    if (!profileData.email || !profileData.password){
         emptyLogin();
     }else{
         myStorage.setItem("logged","true");
-        myStorage.setItem("email",email);
+        myStorage.setItem("profileData",JSON.stringify(profileData));
         myStorage.setItem("cart",JSON.stringify(fetchedCartArticles))
         window.location.href="index.html"};
 }
