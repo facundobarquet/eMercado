@@ -55,7 +55,9 @@ function logOut() {
 
 //Añade mail a la barra de navegacion
 document.addEventListener("DOMContentLoaded", function () {
-  let email = JSON.parse(myStorage.getItem("profileData")).email;
+  if(myStorage.getItem("profileData")){
+    let email = JSON.parse(myStorage.getItem("profileData")).email;
+  }
   let navSpace = document.getElementsByClassName("nav-item")[3]
   if (navSpace) {
     navSpace.innerHTML = `
