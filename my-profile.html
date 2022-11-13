@@ -58,7 +58,8 @@
             <h2>Perfil</h2>
           </div>
           <div class="col-2">
-            <img src="img/img_perfil.png" alt="foto-de-perfil" id="profilePic" class=" border border-2" style="width: 70%;">
+            <img src="img/img_perfil.png" alt="foto-de-perfil" id="profilePic" class=" border border-2"
+              style="width: 70%;">
           </div>
         </div>
         <hr class="mt-4">
@@ -88,34 +89,35 @@
               </div>
               <div>
                 <label for="profileContact" class="form-label">Teléfono de contacto*</label>
-                <input type="text" inputmode="numeric" class="form-control mb-3 toValidate" id="profileContact" required>
+                <input type="text" inputmode="numeric" class="form-control mb-3 toValidate" id="profileContact"
+                  required>
                 <div class="invalid-feedback">
                   Debe ingresar un numero de contacto.
                 </div>
               </div>
+            </div>
+            <div class="col-6">
+              <div>
+                <label for="profileName2" class="form-label">Segundo nombre</label>
+                <input type="text" class="form-control mb-3" id="profileName2">
               </div>
-          <div class="col-6">
-            <div>
-              <label for="profileName2" class="form-label">Segundo nombre</label>
-              <input type="text" class="form-control mb-3" id="profileName2">
+              <div>
+                <label for="profileSurname2" class="form-label">Segundo apellido</label>
+                <input type="text" class="form-control mb-3" id="profileSurname2">
+              </div>
+              <div>
+                <label for="profileImgInput" class="form-label">Imagen de perfil</label>
+                <input type="file" class="form-control mb-3" id="profileImgInput" accept="image/png, image/jpeg">
+              </div>
+              <div class=" d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary w-50 mt-5 " id="saveChangesBtn">Guardar cambios</button>
+              </div>
             </div>
-            <div>
-              <label for="profileSurname2" class="form-label">Segundo apellido</label>
-              <input type="text" class="form-control mb-3" id="profileSurname2">
-            </div>
-            <div>
-              <label for="profileImgInput" class="form-label">Imagen de perfil</label>
-              <input type="file" class="form-control mb-3" id="profileImgInput" accept="image/png, image/jpeg">
-            </div>
-            <div class=" d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary w-50 mt-5 " id="saveChangesBtn">Guardar cambios</button>
-            </div>
-          </div>
         </form>
         <div id="successAlert"></div>
-          <hr class="mt-5">
-        </div>
+        <hr class="mt-5">
       </div>
+    </div>
     </div>
   </main>
   <footer class="text-muted">

@@ -41,23 +41,27 @@
   </div>
   <main role="main" class="pb-5">
     <div class="text-center p-4">
-        <h2>Productos</h2>
-        <p class="lead" id="prod-lead"></p>
-<!-- Barra de busqueda -->
-        <div class="input-group search-bar">
-          <span class="input-group-text" id="basic-addon1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-            </svg>
-          </span>
-          <input type="search" class="form-control" placeholder=" Busque aquí productos" aria-label=" Busque aquí productos" aria-describedby="basic-addon1" id="searchBar">
-        </div>
+      <h2>Productos</h2>
+      <p class="lead" id="prod-lead"></p>
+      <!-- Barra de busqueda -->
+      <div class="input-group search-bar">
+        <span class="input-group-text" id="basic-addon1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+            </path>
+          </svg>
+        </span>
+        <input type="search" class="form-control" placeholder=" Busque aquí productos"
+          aria-label=" Busque aquí productos" aria-describedby="basic-addon1" id="searchBar">
       </div>
+    </div>
     <div class="container">
-<!-- Filtros de busqueda -->
-<div class="row">
-  <div class="col text-end">
-    <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+      <!-- Filtros de busqueda -->
+      <div class="row">
+        <div class="col text-end">
+          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
             <input type="radio" class="btn-check" name="options" id="sortAsc">
             <label class="btn btn-light btn-filter" for="sortAsc">Precio: De menor a mayor</label>
             <input type="radio" class="btn-check" name="options" id="sortDesc">
@@ -88,13 +92,13 @@
           </div>
         </div>
       </div>
-        <div class="row">
-            <div class="list-group" id="prod-list-container">
+      <div class="row">
+        <div class="list-group" id="prod-list-container">
 
-            </div>
         </div>
+      </div>
     </div>
-</main>
+  </main>
   <!-- <main class="pb-5 container">
     <div class="container">
       <div class="alert alert-danger text-center" role="alert">

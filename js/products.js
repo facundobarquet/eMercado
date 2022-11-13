@@ -6,28 +6,27 @@ let currentSortCriteria = undefined;
 let minPrice = undefined;
 let maxPrice = undefined;
 
-function sortProducts(criteria, array){
+function sortProducts(criteria, array) {
     let result = [];
-    if (criteria === ORDER_ASC_BY_PRICE)
-    {
-        result = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
+    if (criteria === ORDER_ASC_BY_PRICE) {
+        result = array.sort(function (a, b) {
+            if (a.cost < b.cost) { return -1; }
+            if (a.cost > b.cost) { return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_DESC_BY_PRICE){
-        result = array.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
+    } else if (criteria === ORDER_DESC_BY_PRICE) {
+        result = array.sort(function (a, b) {
+            if (a.cost > b.cost) { return -1; }
+            if (a.cost < b.cost) { return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_COUNT){
-        result = array.sort(function(a, b) {
+    } else if (criteria === ORDER_BY_PROD_COUNT) {
+        result = array.sort(function (a, b) {
             let aCount = parseInt(a.soldCount);
             let bCount = parseInt(b.soldCount);
 
-            if ( aCount > bCount ){ return -1; }
-            if ( aCount < bCount ){ return 1; }
+            if (aCount > bCount) { return -1; }
+            if (aCount < bCount) { return 1; }
             return 0;
         });
     }
@@ -42,17 +41,17 @@ function setProdID(id) {
 }
 
 
-function showProductsList(){
+function showProductsList() {
 
-    document.getElementById("prod-lead").innerHTML="Verás aquí todos los productos de la categoría "+ prodName;
+    document.getElementById("prod-lead").innerHTML = "Verás aquí todos los productos de la categoría " + prodName;
     //console.log(currentProductsArray);
     let htmlContentToAppend = "";
-    if (currentProductsArray.length != 0){
-        for(let i = 0; i < currentProductsArray.length; i++){
+    if (currentProductsArray.length != 0) {
+        for (let i = 0; i < currentProductsArray.length; i++) {
             let product = currentProductsArray[i];
 
             if (((minPrice == undefined) || (minPrice != undefined && parseInt(product.cost) >= minPrice)) &&
-                ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
+                ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
 
                 htmlContentToAppend += `
                 <div onclick="setProdID(${product.id})" class="list-group-item list-group-item-action cursor-active">
@@ -63,10 +62,10 @@ function showProductsList(){
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <div class="mb-1">
-                            <h4>`+ product.name +` - `+ product.currency +` `+ product.cost +`</h4> 
-                            <p> `+ product.description +`</p>
+                            <h4>`+ product.name + ` - ` + product.currency + ` ` + product.cost + `</h4> 
+                            <p> `+ product.description + `</p>
                             </div>
-                            <small class="text-muted">` + product.soldCount  + ` vendidos</small> 
+                            <small class="text-muted">` + product.soldCount + ` vendidos</small> 
                         </div>
 
                     </div>
@@ -77,16 +76,16 @@ function showProductsList(){
 
             document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
         }
-    }else{
+    } else {
         document.getElementById("prod-list-container").innerHTML =
-        `<p class="lead mt-5 font-weight-bold"> No se han encontrado productos que coincidan con la búsqueda... </p>`
+            `<p class="lead mt-5 font-weight-bold"> No se han encontrado productos que coincidan con la búsqueda... </p>`
     }
 }
 
-function sortAndShowProducts(sortCriteria, productsArray){
+function sortAndShowProducts(sortCriteria, productsArray) {
     currentSortCriteria = sortCriteria;
 
-    if(productsArray != undefined){
+    if (productsArray != undefined) {
         currentProductsArray = productsArray;
     }
 
@@ -95,43 +94,42 @@ function sortAndShowProducts(sortCriteria, productsArray){
     showProductsList();
 }
 
-function searchFilter(search){
+function searchFilter(search) {
     //console.log(search);
-    let newArray=originalArray.filter(function(element){
+    let newArray = originalArray.filter(function (element) {
         //console.log(element.name.toLowerCase())
         return (element.name.toLowerCase().includes(search.toLowerCase()) || element.description.toLowerCase().includes(search.toLowerCase()))
     })
     //console.log(newArray);
-    currentProductsArray=newArray;
+    currentProductsArray = newArray;
 }
 
 
-document.addEventListener("DOMContentLoaded", function(e){
-    let URL=PRODUCTS_URL+myStorage.getItem("catID")+EXT_TYPE;
-    getJSONData(URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
+document.addEventListener("DOMContentLoaded", function (e) {
+    let URL = PRODUCTS_URL + myStorage.getItem("catID") + EXT_TYPE;
+    getJSONData(URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             originalArray = resultObj.data.products;
-            currentProductsArray=originalArray;
-            prodName=resultObj.data.catName;
+            currentProductsArray = originalArray;
+            prodName = resultObj.data.catName;
             //console.log(productsArray);
             showProductsList();
         }
     });
 
-    document.getElementById("sortAsc").addEventListener("click", function(){
+    document.getElementById("sortAsc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_ASC_BY_PRICE);
     });
 
-    document.getElementById("sortDesc").addEventListener("click", function(){
+    document.getElementById("sortDesc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_DESC_BY_PRICE);
     });
 
-    document.getElementById("sortByCount").addEventListener("click", function(){
+    document.getElementById("sortByCount").addEventListener("click", function () {
         sortAndShowProducts(ORDER_BY_PROD_COUNT);
     });
 
-    document.getElementById("clearRangeFilter").addEventListener("click", function(){
+    document.getElementById("clearRangeFilter").addEventListener("click", function () {
         document.getElementById("rangeFilterPriceMin").value = "";
         document.getElementById("rangeFilterPriceMax").value = "";
 
@@ -141,21 +139,21 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 
-    document.getElementById("rangeFilterPrice").addEventListener("click", function(){
+    document.getElementById("rangeFilterPrice").addEventListener("click", function () {
         minPrice = document.getElementById("rangeFilterPriceMin").value;
         maxPrice = document.getElementById("rangeFilterPriceMax").value;
 
-        if ((minPrice != undefined) && (minPrice != "") && (parseInt(minPrice)) >= 0){
+        if ((minPrice != undefined) && (minPrice != "") && (parseInt(minPrice)) >= 0) {
             minPrice = parseInt(minPrice);
         }
-        else{
+        else {
             minPrice = undefined;
         }
 
-        if ((maxPrice != undefined) && (maxPrice != "") && (parseInt(maxPrice)) >= 0){
+        if ((maxPrice != undefined) && (maxPrice != "") && (parseInt(maxPrice)) >= 0) {
             maxPrice = parseInt(maxPrice);
         }
-        else{
+        else {
             maxPrice = undefined;
         }
 
@@ -163,10 +161,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     //Buscador
-    document.getElementById("searchBar").addEventListener("keyup",function(){
-        const search=document.getElementById("searchBar").value;
+    document.getElementById("searchBar").addEventListener("keyup", function () {
+        const search = document.getElementById("searchBar").value;
         searchFilter(search);
         showProductsList();
     })
-    
+
 });

@@ -7,58 +7,58 @@ const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 
-let showSpinner = function(){
+let showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-let hideSpinner = function(){
+let hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-let getJSONData = function(url){
-    let result = {};
-    showSpinner();
-    return fetch(url)
+let getJSONData = function (url) {
+  let result = {};
+  showSpinner();
+  return fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
-      }else{
+      } else {
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function (response) {
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
     })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+    .catch(function (error) {
+      result.status = 'error';
+      result.data = error;
+      hideSpinner();
+      return result;
     });
 }
 
-let myStorage=window.localStorage;
+let myStorage = window.localStorage;
 // Localstorage con DOM, para el inicio de sesion
-let actualPage=window.location.pathname.split("/").slice(-1);
-document.addEventListener("DOMContentLoaded",function(){
-  if (!myStorage.getItem("logged") && actualPage!="login.html"){
-    window.location.href="login.html";
+let actualPage = window.location.pathname.split("/").slice(-1);
+document.addEventListener("DOMContentLoaded", function () {
+  if (!myStorage.getItem("logged") && actualPage != "login.html") {
+    window.location.href = "login.html";
   }
 })
 
-function logOut(){
+function logOut() {
   myStorage.clear();
 }
 
 //Añade mail a la barra de navegacion
-document.addEventListener("DOMContentLoaded", function(){
-  let email=JSON.parse(myStorage.getItem("profileData")).email;
-  let navSpace=document.getElementsByClassName("nav-item")[3]
-  if (navSpace){
-  navSpace.innerHTML=`
+document.addEventListener("DOMContentLoaded", function () {
+  let email = JSON.parse(myStorage.getItem("profileData")).email;
+  let navSpace = document.getElementsByClassName("nav-item")[3]
+  if (navSpace) {
+    navSpace.innerHTML = `
   <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     ${email}
